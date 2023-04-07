@@ -29,29 +29,29 @@ resilience4j:
     instances:
       clientCatalogMovie:
         slidingWindowType: COUNT_BASED
-        failureRateThreshold: '40'
+        failureRateThreshold: '50'
         automaticTransitionFromOpenToHalfOpenEnabled: 'true'
         allowHealthIndicatorToFail: 'false'
         registerHealthIndicator: 'true'
-        slidingWindowSize: '10'
-        permittedNumberOfCallsInHalfOpenState: '3'
-        waitDurationInOpenState: '15000'
+        slidingWindowSize: '5'
+        permittedNumberOfCallsInHalfOpenState: '2'
+        waitDurationInOpenState: '10000'
       clientCatalogSerie:
         slidingWindowType: COUNT_BASED
-        failureRateThreshold: '40'
+        failureRateThreshold: '50'
         automaticTransitionFromOpenToHalfOpenEnabled: 'true'
         allowHealthIndicatorToFail: 'false'
         registerHealthIndicator: 'true'
-        slidingWindowSize: '10'
-        permittedNumberOfCallsInHalfOpenState: '3'
-        waitDurationInOpenState: '15000'
+        slidingWindowSize: '5'
+        permittedNumberOfCallsInHalfOpenState: '2'
+        waitDurationInOpenState: '10000'
   retry:
     instances:
       retryCatalogMovie:
-        maxAttempts: '3'
+        maxAttempts: '2'
         waitDuration: '1000'
         retryExceptions[0]: feign.FeignException$InternalServerError
       retryCatalogSerie:
-        maxAttempts: '3'
+        maxAttempts: '2'
         waitDuration: '1000'
         retryExceptions[0]: feign.FeignException$InternalServerError
